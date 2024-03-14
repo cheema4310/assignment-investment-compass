@@ -7,10 +7,10 @@
     @apply flex justify-center items-center;
   }
   .my-heading {
-    @apply font-modern font-semibold text-3xl;
+    @apply font-modern font-bold text-3xl;
   }
   .my-heading-normal {
-    @apply font-heading font-medium text-2xl;
+    @apply font-heading font-semibold text-2xl;
   }
   .my-para {
     @apply font-para font-normal text-base;
@@ -22,13 +22,19 @@
     @apply py-2 px-6 bg-lighter text-darker font-semibold rounded-lg shadow-md hover:bg-lightest;
   }
   .my-link {
-    @apply py-2 px-6 bg-transparent font-semibold;
+    @apply p-2 font-btn bg-transparent font-medium hover:text-lightest;
   }
   .my-navlink {
     @apply p-2 text-xl bg-transparent font-bold font-btn;
   }
   .my-navlink-active {
     @apply p-2 text-xl bg-transparent font-bold font-btn text-orange-600;
+  }
+  .my-social-icon {
+    @apply w-9 h-9 transition hover:scale-110;
+  }
+  .my-input {
+    @apply w-full p-2 font-medium font-para rounded-lg outline-none bg-lightest text-darkest focus:bg-white;
   }
 }
 
