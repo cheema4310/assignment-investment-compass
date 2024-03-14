@@ -7,6 +7,7 @@ import SignIn from './pages/SignIn';
 import Register from './pages/Register';
 import CourseDetails from './pages/CourseDetails';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" element={<SignIn />} />
         <Route path="/register" element={<Register />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

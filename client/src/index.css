@@ -16,13 +16,19 @@
     @apply font-para font-normal text-base;
   }
   .my-btn {
-    @apply py-2 px-6 bg-dark text-lightest font-semibold rounded-lg shadow-md hover:bg-darker;
+    @apply py-2 px-6 bg-dark text-lightest font-semibold rounded-lg shadow-lg transition hover:bg-darker;
   }
   .my-btn-light {
     @apply py-2 px-6 bg-lighter text-darker font-semibold rounded-lg shadow-md hover:bg-lightest;
   }
   .my-link {
-    @apply py-2 px-6 bg-transparent font-semibold active:underline;
+    @apply py-2 px-6 bg-transparent font-semibold;
+  }
+  .my-navlink {
+    @apply p-2 text-xl bg-transparent font-bold font-btn;
+  }
+  .my-navlink-active {
+    @apply p-2 text-xl bg-transparent font-bold font-btn text-orange-600;
   }
 }
 
