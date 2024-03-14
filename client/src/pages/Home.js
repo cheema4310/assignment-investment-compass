@@ -1,3 +1,4 @@
+import CoursesShowcase from '../components/CoursesShowcase/CoursesShowcase';
 import HeroSection from '../components/HeroSection/HeroSection';
 
 export default function Home() {
@@ -5,6 +6,7 @@ export default function Home() {
     <>
       <div>
         <HeroSection />
+        <CoursesShowcase />
       </div>
     </>
   );

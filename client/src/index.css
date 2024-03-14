@@ -3,8 +3,23 @@
 @tailwind utilities;
 
 @layer components {
+  .my-flex {
+    @apply flex justify-center items-center;
+  }
+  .my-heading {
+    @apply font-modern font-semibold text-3xl;
+  }
+  .my-heading-normal {
+    @apply font-heading font-medium text-2xl;
+  }
+  .my-para {
+    @apply font-para font-normal text-base;
+  }
   .my-btn {
     @apply py-2 px-6 bg-dark text-lightest font-semibold rounded-lg shadow-md hover:bg-darker;
+  }
+  .my-btn-light {
+    @apply py-2 px-6 bg-lighter text-darker font-semibold rounded-lg shadow-md hover:bg-lightest;
   }
   .my-link {
     @apply py-2 px-6 bg-transparent font-semibold active:underline;
