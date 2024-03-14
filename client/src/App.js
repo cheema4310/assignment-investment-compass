@@ -5,8 +5,8 @@ import Events from './pages/Events';
 import Contact from './pages/Contact';
 import SignIn from './pages/SignIn';
 import Register from './pages/Register';
-import Header from './components/Header';
 import CourseDetails from './pages/CourseDetails';
+import Header from './components/Header';
 
 function App() {
   return (

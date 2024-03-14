@@ -3,7 +3,20 @@
 @tailwind utilities;
 
 @layer components {
-  .btn {
+  .my-btn {
     @apply py-2 px-6 bg-dark text-lightest font-semibold rounded-lg shadow-md hover:bg-darker;
   }
+  .my-link {
+    @apply py-2 px-6 bg-transparent font-semibold active:underline;
+  }
 }
+
+/* google font */
+/* <weight>: Use a value from 100 to 900 */
+/* only Lato <weight> 400, 700, 900 */
+/* font-family: "Exo", sans-serif */
+/* font-family: "Nunito", sans-serif */
+/* font-family: "Open Sans", sans-serif */
+/* font-family: "Lato", sans-serif */
+
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@100..900&family=Lato:wght@400;700;900&family=Nunito:wght@200..1000&family=Open+Sans:wght@300..800&display=swap');
