@@ -9,7 +9,7 @@ export default function EventCard({ event }) {
     // Redirect to "/register-event?id=02"
   };
   return (
-    <div className="px-4 py-6 basis-1/4 bg-lighter text-darkest rounded-lg shadow-md hover:bg-lightest">
+    <div className="px-4 py-6 basis-1/4 bg-lighter text-darkest rounded-lg shadow-md transition hover:bg-lightest">
       <h2 className="py-2 font-heading font-semibold text-lg">
         {modifyEventTitle}
       </h2>

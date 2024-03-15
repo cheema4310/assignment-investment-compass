@@ -3,11 +3,11 @@ import Home from './pages/Home';
 import Courses from './pages/Courses';
 import Events from './pages/Events';
 import Contact from './pages/Contact';
-import SignIn from './pages/SignIn';
 import Register from './pages/Register';
 import CourseDetails from './pages/CourseDetails';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         </Route>
         <Route path="/events" element={<Events />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<SignIn />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />

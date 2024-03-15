@@ -53,6 +53,14 @@ export default function Header() {
           </li>
         </ul>
       </nav>
+      <div className="my-flex gap-2">
+        <Link className="my-btn-outline" to="/login">
+          Sign In
+        </Link>
+        <Link className="my-btn-outline" to="/register">
+          Sign Up
+        </Link>
+      </div>
     </header>
   );
 }
