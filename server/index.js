@@ -5,6 +5,10 @@ const { connect } = require('./db/config');
 const productsRoute = require('./api/routes/productRoutes');
 const orderRoute = require('./api/routes/orderRoutes');
 
+//delete later
+const Course = require('./api/models/course-model');
+const { dummyCourses } = require('./dummyCourses');
+
 //Configuring .env Variables stored
 require('dotenv').config();
 
@@ -38,5 +42,15 @@ app.use((error, req, res, next) => {
     message: error.message,
   });
 });
+// delete later only to add courses to database
+const addCoursesToDB = async () => {
+  try {
+    await Course.deleteMany({});
+    await Course.insertMany(dummyCourses);
+  } catch (error) {
+    console.error('Error adding dummy products:', error);
+  }
+};
+addCoursesToDB();
 
 app.listen(PORT, () => console.log('server is running on Port = ' + PORT));
