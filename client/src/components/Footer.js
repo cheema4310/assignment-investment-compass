@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <section id="footer">
       <div className="flex items-center justify-around p-12 bg-darker text-lighter">
-        <div className="flex-1 flex flex-col items-center gap-2">
+        <div className="flex-1 flex flex-col items-end gap-2">
           <h4 className="my-heading text-lightest">Connect with us</h4>
           <a className="my-para" href="mailto:support@investmentcompass.in">
             support@investmentcompass.in

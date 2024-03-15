@@ -30,11 +30,11 @@ export default function TradingAppBanner() {
   return (
     <section id="banner">
       <div className="flex flex-col bg-lightest py-20">
-        <div>
+        <div className="py-12">
           <h2 className="my-heading text-center">
             Download Trading app from us for Free
           </h2>
-          <p className="my-para py-4 text-center w-5/12 mx-auto">
+          <p className="my-para py-4 text-center w-1/3 mx-auto">
             Create your trading app with us and get free class and doubt solving
             for life time. This is the ticket for our members group
           </p>
