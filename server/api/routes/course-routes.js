@@ -1,9 +1,18 @@
 const express = require('express');
-const { getCourses } = require('../controllers/product-controllers');
+const {
+  getCourses,
+  getCourseById,
+  deleteCourseById,
+  createCourse,
+} = require('../controllers/course-controllers');
 
 const router = express.Router();
 
 // Getting all the courses
 router.get('/', getCourses);
+router.post('/', createCourse);
+
+router.get('/:id', getCourseById);
+router.delete('/:id', deleteCourseById);
 
 module.exports = router;

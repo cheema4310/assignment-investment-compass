@@ -2,12 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const { connect } = require('./db/config');
 
-const productsRoute = require('./api/routes/productRoutes');
-const orderRoute = require('./api/routes/orderRoutes');
+const courseRoutes = require('./api/routes/course-routes');
 
 //delete later
-const Course = require('./api/models/course-model');
-const { dummyCourses } = require('./dummyCourses');
+// const Course = require('./api/models/course-model');
+// const dummyCourses = require('./dummyCourses');
 
 //Configuring .env Variables stored
 require('dotenv').config();
@@ -26,8 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // Routes
-app.use('/products', productsRoute);
-app.use('/order', orderRoute);
+app.use('/api/courses', courseRoutes);
 
 // handle Error across application
 app.use((req, res, next) => {
@@ -43,14 +41,14 @@ app.use((error, req, res, next) => {
   });
 });
 // delete later only to add courses to database
-const addCoursesToDB = async () => {
-  try {
-    await Course.deleteMany({});
-    await Course.insertMany(dummyCourses);
-  } catch (error) {
-    console.error('Error adding dummy products:', error);
-  }
-};
-addCoursesToDB();
+// const addCoursesToDB = async () => {
+//   try {
+//     await Course.deleteMany({});
+//     await Course.insertMany(dummyCourses);
+//   } catch (error) {
+//     console.error('Error adding dummy products:', error);
+//   }
+// };
+// addCoursesToDB();
 
 app.listen(PORT, () => console.log('server is running on Port = ' + PORT));

@@ -1,4 +1,4 @@
-export const Dummy_Courses = [
+const Dummy_Courses = [
   {
     title: 'Master the Market',
     desc: 'Trading and investment training from basic to advance of trading and investment. Get one month of training and three months of support',
@@ -50,3 +50,5 @@ export const Dummy_Courses = [
       'https://img.freepik.com/free-photo/confident-handsome-hispanic-financial-broker-showing-fist-computer-screen-while-trading-from-home_662251-757.jpg?t=st=1710391432~exp=1710395032~hmac=d52722f9a1ca2061146bce38fb6b5feedf021a22f1f935cb34d7b6e0e70c715b&w=900',
   },
 ];
+
+module.exports = Dummy_Courses;
