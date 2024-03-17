@@ -2,9 +2,9 @@ import CourseCard from './CourseCard';
 
 export default function CoursesList({ courses }) {
   return (
-    <div className="my-flex p-12 gap-4">
+    <div className="p-12 grid grid-cols-6 gap-4">
       {courses.map((course) => (
-        <CourseCard key={course.id} course={course} />
+        <CourseCard key={course._id} course={course} />
       ))}
     </div>
   );

@@ -2,7 +2,7 @@ import botImage from '../assets/contact-bot.png';
 export default function Contact() {
   const handleSubmit = () => {};
   return (
-    <div className="p-12 bg-lightest w-full h-screen">
+    <div className="p-12 bg-lightest w-full">
       <div className="grid grid-cols-5 items-center h-full">
         <div className="col-span-3 my-flex">
           <div className="w-52 h-80">
@@ -10,6 +10,9 @@ export default function Contact() {
           </div>
         </div>
         <div className="p-12 col-span-2 bg-darker rounded-lg shadow-xl">
+          <h2 className="pb-8 pt-2 font-modern font-semibold text-lightest text-xl text-center">
+            We're Here to Help! Ask Away
+          </h2>
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <div>
               <input

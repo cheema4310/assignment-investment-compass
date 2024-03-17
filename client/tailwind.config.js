@@ -10,6 +10,8 @@ module.exports = {
         dark: '#3D3D3D',
         darker: '#292929',
         darkest: '#0D0D0D',
+        glassDarkest: 'rgba(13, 13, 13, 0.6)',
+        glassOrange: 'rgba(234, 88, 12, 0.6)',
       },
       backgroundImage: {
         'hero-section': "url('/src/assets/bg-one.jpg')",

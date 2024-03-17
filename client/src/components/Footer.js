@@ -53,7 +53,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="flex-1">
-          <h4 className="my-heading-normal py-2">Don't Miss Out!</h4>
+          <h4 className="my-heading-normal py-2">Ready to Learn?</h4>
           <form className="flex flex-col items-center gap-4">
             <input
               className="my-input"
