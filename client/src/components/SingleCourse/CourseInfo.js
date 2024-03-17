@@ -16,12 +16,12 @@ export default function CourseInfo({ course }) {
           </div>
           <div className="flex gap-4">
             <Link
-              className="py-2 px-6 text-lightest bg-orange-600 border border-orange-600 font-semibold rounded-lg shadow-lg hover:text-orange-600 hover:bg-transparent"
+              className="py-2 px-6 text-lightest bg-orange-600 border border-orange-600 font-semibold rounded-lg shadow-lg hover:text-orange-600 hover:bg-lightest"
               to={`/enroll?id=${id}`}
             >
               Enroll
             </Link>
-            <button className="py-2 px-4 text-lightest font-semibold bg-transparent rounded-lg shadow-lg border border-lightest transition hover:text-orange-600 hover:border-orange-600">
+            <button className="py-2 px-4 text-lightest font-semibold bg-transparent rounded-lg shadow-lg border border-lightest transition hover:border-orange-600">
               Syllabus
             </button>
           </div>

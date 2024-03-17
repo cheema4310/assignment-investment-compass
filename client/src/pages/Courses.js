@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import CoursesList from '../components/CoursesShowcase/CoursesList';
+import LoadingSPinner from '../components/shared/LoadingSpinner/LoadingSpinner';
 
 export default function Courses() {
   const [courses, setCourses] = useState(null);
@@ -24,11 +25,7 @@ export default function Courses() {
       <h2 className="my-heading text-center py-10">
         Find the Course That Matters to You
       </h2>
-      {courses ? (
-        <CoursesList courses={courses} />
-      ) : (
-        <div className="text-center py-10">Loading</div>
-      )}
+      {courses ? <CoursesList courses={courses} /> : <LoadingSPinner />}
     </div>
   );
 }

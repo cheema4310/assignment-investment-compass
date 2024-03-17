@@ -8,9 +8,11 @@ const {
 
 const router = express.Router();
 
-// Getting all the courses
-router.get('/', getCourses);
-router.post('/', createCourse);
+// // Getting all the courses
+// router.get('/', getCourses);
+// router.post('/', createCourse);
+
+router.route('/').get(getCourses).post(createCourse);
 
 router.get('/:id', getCourseById);
 router.delete('/:id', deleteCourseById);

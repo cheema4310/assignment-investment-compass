@@ -3,6 +3,7 @@ const cors = require('cors');
 const { connect } = require('./db/config');
 
 const courseRoutes = require('./api/routes/course-routes');
+const authRoutes = require('./api/routes/auth-routes');
 
 //delete later
 // const Course = require('./api/models/course-model');
@@ -26,6 +27,7 @@ app.use(cors());
 
 // Routes
 app.use('/api/courses', courseRoutes);
+app.use('/api/auth', authRoutes);
 
 // handle Error across application
 app.use((req, res, next) => {
