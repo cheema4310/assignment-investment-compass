@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const userSchema = mongoose.Schema(
   {
-    username: {
+    name: {
       type: String,
       required: true,
     },
@@ -28,6 +28,7 @@ const userSchema = mongoose.Schema(
   { timestamps: true }
 );
 
+// Hashing Password before saving it to DB
 userSchema.pre('save', async function (next) {
   const user = this;
   if (!user.isModified('password')) {
@@ -42,6 +43,7 @@ userSchema.pre('save', async function (next) {
   }
 });
 
+// JWT token generation with the help of Instance Method
 userSchema.methods.generateToken = async function () {
   try {
     return jwt.sign(
