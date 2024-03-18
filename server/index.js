@@ -4,6 +4,7 @@ const { connect } = require('./db/config');
 
 const courseRoutes = require('./api/routes/course-routes');
 const authRoutes = require('./api/routes/auth-routes');
+const contactRoutes = require('./api/routes/contact-routes');
 
 //delete later
 // const Course = require('./api/models/course-model');
@@ -28,6 +29,7 @@ app.use(cors());
 // Routes
 app.use('/api/courses', courseRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/contact', contactRoutes);
 
 // handle Error across application
 app.use((req, res, next) => {
@@ -36,12 +38,14 @@ app.use((req, res, next) => {
   next(error);
 });
 
+// Create Error Middleware for it later
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({
     message: error.message,
   });
 });
+
 // delete later only to add courses to database
 // const addCoursesToDB = async () => {
 //   try {
@@ -53,4 +57,4 @@ app.use((error, req, res, next) => {
 // };
 // addCoursesToDB();
 
-app.listen(PORT, () => console.log('server is running on Port = ' + PORT));
+app.listen(PORT, () => console.log('server is running on Port: ' + PORT));
