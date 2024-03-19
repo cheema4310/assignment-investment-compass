@@ -53,7 +53,7 @@ export default function Register() {
         setUser({ name: '', email: '', password: '' });
         setLoading(false);
         setTokenLocalStorage(data.token);
-        navigate('/login');
+        navigate('/');
       } else {
         setErrors(data.message);
         setLoading(false);
