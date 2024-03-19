@@ -7,7 +7,9 @@ const register = async (req, res) => {
   try {
     const userAlreadyExist = await User.findOne({ email: email });
     if (userAlreadyExist) {
-      res.status(400).json({ message: 'User Already Exists in DB' });
+      return res
+        .status(400)
+        .json({ message: { email: 'User Already Exists in DB' } });
     }
 
     const userCreated = await User.create({
@@ -17,7 +19,7 @@ const register = async (req, res) => {
     });
 
     res.status(201).json({
-      message: 'Created User in Database',
+      message: { success: 'Created User in Database' },
       token: await userCreated.generateToken(),
       id: userCreated._id.toString(),
     });
@@ -32,14 +34,20 @@ const login = async (req, res) => {
   try {
     const hasUser = await User.findOne({ email });
     if (!hasUser) {
-      res.status(400).json({ message: 'No User registered with this Email' });
+      return res.status(400).json({
+        message: {
+          email: 'No User registered with this Email',
+        },
+      });
     }
 
     const isPasswordValid = await bcrypt.compare(password, hasUser.password);
     if (!isPasswordValid) {
-      res
-        .status(401)
-        .json({ message: 'Authentication Error: Password Invalid' });
+      return res.status(401).json({
+        message: {
+          password: 'Authentication Error: Password Invalid',
+        },
+      });
     }
 
     res.status(200).json({

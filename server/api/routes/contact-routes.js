@@ -1,10 +1,10 @@
 const express = require('express');
 const validate = require('../middlewares/validate-middleware');
-const { conatctSchema } = require('../validators/auth-validator');
 const { createContactMsg } = require('../controllers/contact-controllers');
+const { contactSchema } = require('../validators/contact-validator');
 
 const router = express.Router();
 
-router.post('/', validate(conatctSchema), createContactMsg);
+router.post('/', validate(contactSchema), createContactMsg);
 
 module.exports = router;

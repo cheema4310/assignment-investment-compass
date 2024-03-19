@@ -1,9 +1,57 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthPagesLayout from '../components/shared/AuthPagesLayout';
+import { useState } from 'react';
+import InputError from '../components/shared/InputError';
+import LoadingSPinner from '../components/shared/LoadingSpinner/LoadingSpinner';
 
 export default function Login() {
-  const handleSubmit = (e) => {
+  const [user, setUser] = useState({
+    email: '',
+    password: '',
+  });
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState({ email: '', password: '' });
+
+  const navigate = useNavigate();
+
+  const handleInput = (e) => {
+    const key = e.target.name;
+    const value = e.target.value;
+    setUser({
+      ...user,
+      [key]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch('http://localhost:5001/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('Login Successful');
+        setUser({ email: '', password: '' });
+        setLoading(false);
+        navigate('/');
+      } else {
+        console.log(data.message);
+        setLoading(false);
+        setErrors(data.message);
+      }
+    } catch (err) {
+      setLoading(false);
+      console.error(err);
+    }
   };
   return (
     <AuthPagesLayout>
@@ -11,14 +59,18 @@ export default function Login() {
         <h2 className="my-heading text-lightest text-center">
           Your Personal Portal
         </h2>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-7">
           <div>
             <input
               type="email"
               name="email"
               placeholder="Email Address"
               className="my-input"
+              onChange={handleInput}
+              value={user.email}
+              required
             />
+            {errors.email && <InputError error={errors.email} />}
           </div>
           <div>
             <input
@@ -26,12 +78,17 @@ export default function Login() {
               name="password"
               placeholder="Password"
               className="my-input"
+              onChange={handleInput}
+              value={user.password}
+              required
             />
+            {errors.password && <InputError error={errors.password} />}
           </div>
-          <button className="my-btn-light w-full">Sign In</button>
+          <button className="my-btn-light w-full">
+            {loading ? <LoadingSPinner /> : 'Sign In'}
+          </button>
         </form>
         <div className="flex flex-col">
-          {/* <p className="relative text-center my-after">or</p> */}
           <div className="text-center relative">
             <span className="inline-block px-2 py-1 bg-darker text-lightest z-10 relative">
               OR
