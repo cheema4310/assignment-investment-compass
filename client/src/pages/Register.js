@@ -1,8 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
 import AuthPagesLayout from '../components/shared/AuthPagesLayout';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import LoadingSpinner from '../components/shared/LoadingSpinner/LoadingSpinner';
 import InputError from '../components/shared/InputError';
+import { AuthContext } from '../store/auth';
+
+const PRO_URL =
+  'https://assignment-investment-compass.onrender.com/api/auth/register';
+// const DEV_URL = 'http://localhost:5001/api/auth/register';
 
 export default function Register() {
   const [user, setUser] = useState({
@@ -18,6 +23,8 @@ export default function Register() {
   });
 
   const navigate = useNavigate();
+  const { setTokenLocalStorage } = useContext(AuthContext);
+
   const handleInput = (e) => {
     const key = e.target.name;
     const value = e.target.value;
@@ -32,7 +39,7 @@ export default function Register() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5001/api/auth/register', {
+      const response = await fetch(PRO_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,6 +52,7 @@ export default function Register() {
         console.log('Register successful');
         setUser({ name: '', email: '', password: '' });
         setLoading(false);
+        setTokenLocalStorage(data.token);
         navigate('/login');
       } else {
         setErrors(data.message);

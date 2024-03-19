@@ -1,8 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
 import AuthPagesLayout from '../components/shared/AuthPagesLayout';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import InputError from '../components/shared/InputError';
 import LoadingSPinner from '../components/shared/LoadingSpinner/LoadingSpinner';
+import { AuthContext } from '../store/auth';
+
+const PRO_URL =
+  'https://assignment-investment-compass.onrender.com/api/auth/login';
+// const DEV_URL = 'http://localhost:5001/api/auth/login';
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -13,6 +18,7 @@ export default function Login() {
   const [errors, setErrors] = useState({ email: '', password: '' });
 
   const navigate = useNavigate();
+  const { setTokenLocalStorage } = useContext(AuthContext);
 
   const handleInput = (e) => {
     const key = e.target.name;
@@ -28,7 +34,7 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5001/api/auth/login', {
+      const response = await fetch(PRO_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,6 +48,7 @@ export default function Login() {
         console.log('Login Successful');
         setUser({ email: '', password: '' });
         setLoading(false);
+        setTokenLocalStorage(data.token);
         navigate('/');
       } else {
         console.log(data.message);

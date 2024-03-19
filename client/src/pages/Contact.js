@@ -2,6 +2,11 @@ import { useState } from 'react';
 import botImage from '../assets/contact-bot.png';
 import LoadingSPinner from '../components/shared/LoadingSpinner/LoadingSpinner';
 import InputError from '../components/shared/InputError';
+
+const PRO_URL =
+  'https://assignment-investment-compass.onrender.com/api/contact';
+// const DEV_URL = 'http://localhost:5001/api/contact';
+
 export default function Contact() {
   const [userMsg, setUserMsg] = useState({
     name: '',
@@ -27,7 +32,7 @@ export default function Contact() {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5001/api/contact', {
+      const response = await fetch(PRO_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

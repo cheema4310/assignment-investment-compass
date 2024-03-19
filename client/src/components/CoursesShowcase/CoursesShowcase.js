@@ -2,13 +2,17 @@ import { useEffect, useState } from 'react';
 import CoursesList from './CoursesList';
 import LoadingSPinner from '../shared/LoadingSpinner/LoadingSpinner';
 
+const PRO_URL =
+  'https://assignment-investment-compass.onrender.com/api/courses';
+// const DEV_URL = 'http://localhost:5001/api/courses';
+
 export default function CoursesShowcase() {
   const [courses, setCourses] = useState(null);
   useEffect(() => {
     // Reminder: Change the URL before Production
     const fetchCourses = async () => {
       try {
-        const response = await fetch('http://localhost:5001/api/courses');
+        const response = await fetch(PRO_URL);
         const data = await response.json();
         if (response.ok) {
           setCourses(data);

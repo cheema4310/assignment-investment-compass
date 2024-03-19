@@ -9,10 +9,13 @@ export default function CourseDetails() {
 
   const { id } = useParams();
 
+  const PRO_URL = `https://assignment-investment-compass.onrender.com/api/courses/${id}`;
+  // const DEV_URL = `http://localhost:5001/api/courses/${id}`;
+
   useEffect(() => {
     const fetchCourse = async () => {
       try {
-        const response = await fetch(`http://localhost:5001/api/courses/${id}`);
+        const response = await fetch(PRO_URL);
         const data = await response.json();
         setCourse(data);
       } catch (error) {

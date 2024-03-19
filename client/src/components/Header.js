@@ -1,7 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo-apes.png';
+import { useContext } from 'react';
+import { AuthContext } from '../store/auth';
 
 export default function Header() {
+  const { isLoggedIn } = useContext(AuthContext);
   const navClassName = 'my-navlink';
   const activeClassName = 'my-navlink-active';
   return (
@@ -53,14 +56,22 @@ export default function Header() {
           </li>
         </ul>
       </nav>
-      <div className="my-flex gap-2">
-        <Link className="my-btn-outline" to="/login">
-          Sign In
-        </Link>
-        <Link className="my-btn-outline" to="/register">
-          Sign Up
-        </Link>
-      </div>
+      {isLoggedIn ? (
+        <div className="my-flex">
+          <Link to="/logout" className="my-btn-outline">
+            Log Out
+          </Link>
+        </div>
+      ) : (
+        <div className="my-flex gap-2">
+          <Link className="my-btn-outline" to="/login">
+            Sign In
+          </Link>
+          <Link className="my-btn-outline" to="/register">
+            Sign Up
+          </Link>
+        </div>
+      )}
     </header>
   );
 }

@@ -60,4 +60,10 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { register, login };
+const getUserData = async (req, res) => {
+  const userData = req.user;
+  try {
+    res.json({ message: userData });
+  } catch (error) {}
+};
+module.exports = { register, login, getUserData };
